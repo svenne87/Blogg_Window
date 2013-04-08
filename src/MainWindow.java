@@ -128,7 +128,6 @@ public class MainWindow {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				String title = text.getText();
-				String author_title = combo.getText();
 				String content = text_1.getText();
 				
 				int authorIndex = combo.getSelectionIndex();
@@ -137,10 +136,17 @@ public class MainWindow {
 				category = categories.get(categoryIndex);
 				
 				post = new Post();
-				post.author = author;
-				post.category = category;
-				post.SetValues(title, content, date); ////////
+				post.SetValues(title, content, date, author, category); ////////
+				//bloggs.AddToList(post);
+				list.add(post.getTitle());
 				
+				text.setText("");
+				text_1.setText("");
+				combo.select(-1);
+				combo_1.select(-1);
+				
+				//funkar inte att lägga till i bloggs
+				//nollställa datum
 				// ändra set och get i Post för att förmedla author
 				// hur får man date
 				// hur får jag hela author till posten????  kolla så inte null!!!
